@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>演示平台首页</title>
+
+<style>
+    body {
+          margin: 0;
+          padding: 0;
+          display: flex;
+          background: url('images/background.jpg') no-repeat center center fixed;
+          background-size: cover;
+          overflow: hidden;
+          font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+    .top-title{
+            position: absolute;
+            left: 5%;
+            top: 2%;
+    }
+
+
+    /* .top-title .circle{
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        border: none;
+        background-color: #4827b5;
+        position: relative;
+        
+    } */
+    .top-title p{
+        font-size: 3vw;
+        font-weight: 800;
+        color: #fff;
+    }
+
+    .top-title p::before{
+        content: "";
+        display: block;
+        width: 5.5vw;
+        height: 5.5vw;
+        background-color: #5b30e7;
+        border-radius: 50%;
+        position: absolute;
+        top: 55%;
+        left: 4%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+    }
+
+    .title{
+        position: absolute;
+        left: 7%;
+        top: 22%;
+        width: 40%;
+    }
+    .title p{
+        color: #fff;
+        font-size:5.5vw;
+        font-weight: 700;
+        margin: 0.5%;
+    }
+    .small-title{
+        position: absolute;
+        left: 7%;
+        top: 58%;
+        display: flex;
+        width: 33%;
+        color:#fff;
+        font-size: 1.7vw;
+        font-weight: 500;
+    }
+    .small-title .box{
+        width: 25%;
+        height: 3vw;
+        display: flex;
+        align-items: center; 
+        margin-right: 1%;
+    }
+
+    .box-circle {
+        margin-right: 0.8vw; 
+        width: 1vw;
+        height: 1vw;
+        background-color: #fff;
+    }
+    .button{
+        position: absolute;
+        bottom: 6%;
+        left: 10%;
+        border: none;
+        border-radius: 1.2vw;
+        width: 31.08vw;
+         /* background: linear-gradient(to bottom right, rgb(171, 141, 253), rgb(210 114 114)); */
+         background: linear-gradient(to bottom right, rgb(192 180 229), rgb(120 90 187));
+        height: 11.68vw;
+        font-size: 1.2vw;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: transform 0.3s ease-in-out;
+        z-index: 10;
+        box-shadow: rgba(0, 0, 0, 0.19) 0 1vw 2vw, rgba(0, 0, 0, 0.23) 0px 6vw 6vw;
+    }
+    .button:hover{
+        transform: scale(1.1);
+    }
+    .button p{
+        color: #000;
+        font-size: 2.5vw;
+        background-color: #ffffff63;
+        padding: 2.5vw 6vw;
+        border-radius: 1.2vw;
+    }
+    .card-container{
+        position: absolute;
+        right: 10%;
+        top: 7.5vh;
+        width: 40vw;
+        height: 85vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        align-items: center;
+        
+    }
+    .card{
+        margin: 5px; /* 调整小块之间的间距 */
+        background-color: #ffffff;
+        width: 90%;
+        height: 90%;
+        border-radius: 1.2vw;
+        position: relative;
+        box-shadow: rgba(236, 238, 239, 0.3) 0px 1px 2px 0px, rgba(236, 238, 239, 0.15) 0px 4px 6px 2px;
+    }
+    .card-outtitle{
+        color: #272727;
+        font-size: 2.4vw;
+        font-weight: 600;
+        margin-bottom: 0.6vw;
+        margin-left: 0.72vw;
+        background-color: rgba(255, 255, 255, 0.7);
+        border-radius: 0.6vw 0 0 0.6vw;
+        padding: 0.48vw;
+        padding-left: 0.78vw;
+        letter-spacing: 0.78vw;
+    }
+    .card-outtitle svg{
+        width: 2.2vw;
+        height: 2.2vw;
+    }
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        border-radius: 1.2vw;
+        cursor: pointer;
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(255, 255, 255.0,5));
+        backdrop-filter: blur(1vw);
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
+          
+      }
+      .card-button-container{
+        display: flex;
+      }
+      .card-button-container a{
+        color: #fff;
+        font-size: 1.2vw;
+        font-weight: 400;
+        text-align: center;
+        padding-top:0.5vw;
+
+      }
+      .card-button{
+        width:4.5vw ;
+        height:2.1vw ;
+        border-radius: 3vw ;
+        background: linear-gradient(to bottom right, rgb(113, 154, 220), rgb(178, 123, 210));
+        transition: transform 0.3s ease-in-out;
+        margin: 0 0.6vw;
+      }
+      .card-button:hover{
+        transform: scale(1.1);
+      }
+
+      
+      .card-title{
+        color: #272727;
+        font-size: 2.6vw;
+        font-weight: 600;
+        margin-bottom: 0.6vw;
+      }
+      .intro{
+        color: #000000;
+        font-size: 1.2vw;
+        margin: 1.2vw 1.8vw;
+      }
+      a{
+        text-decoration: none;
+      }
+      
+      .circle{
+        position: absolute;
+        width: 60vw;
+        height: 60vw;
+        background-color: #381e86;
+        bottom: -32vw;
+        border-radius: 50%;
+        margin-left: -22vw;
+        z-index: -1;
+    }
+
+</style>
+</head>
+<body>
+    <!-- 标题 -->
+    <div class="top-title">
+        <p><span style="font-size: 1.9vw;font-weight: 750;margin-right: 8px;">IMAG</span>智能媒体分析实验室</p>
+    </div>
+
+    
+        <div class="title">
+            <p>视觉<span style="color: #8a6af4;">增强</span></p>
+            <p style="text-indent: 15%;">展示平台</p>
+        </div>
+    
+        <!-- 小标题 -->
+        <div class="small-title">
+            <div class="box">
+                <!-- <svg  t="1709813974788" class="icon" viewBox="0 0 4096 2160" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="12923" data-spm-anchor-id="a313x.search_index.0.i6.2a503a819qShLU" width="40" height="40"><circle cx="550"  cy="550" r="560" fill="white" /><path d="M398.574933 637.201067l-172.2368-159.778134a59.938133 59.938133 0 0 0-83.114666 1.536 55.227733 55.227733 0 0 0 1.706666 79.7696l218.862934 200.635734a85.333333 85.333333 0 0 0 118.442666-3.037867l402.090667-408.132267a51.029333 51.029333 0 0 0-1.9456-73.5232 55.6032 55.6032 0 0 0-76.765867 1.774934L445.917867 636.3136a34.133333 34.133333 0 0 1-47.342934 0.887467z" fill="#5b30e7" p-id="12924" data-spm-anchor-id="a313x.search_index.0.i7.2a503a819qShLU" class="selected"></path></svg> -->
+                <div class="box-circle"></div>
+                <span>上色</span> 
+            </div>
+            <div class="box">
+                <div class="box-circle"></div>
+                <span>超分</span>
+            </div>
+            <div class="box">
+                <div class="box-circle"></div>
+                <span>复原</span>
+            </div>
+            <div class="box">
+                <div class="box-circle"></div>
+                <span>去模糊</span>
+            </div>
+        </div>
+        <!-- 按钮左：需要一个跳转地址！！！！！ -->
+        <a href="http://10.10.110.21:8080/" class="button" target="_blank">
+            <p>算法管理平台</p>
+        </a>
+        <div class="circle"></div>
+
+    <!-- 卡片组 -->
+    <div class="card-container">
+        <div class="card"  style="background: url('images/10.jpg');background-size: cover;">
+            <p class="card-outtitle"> 上色
+                <svg t="1709915225968" class="icon" style="position: absolute;left:75%;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6088" width="48" height="48"><path d="M491.983788 139.739508a117.816942 117.816942 0 0 0-116.550093 116.550094v347.116582l-32.93807-32.938069a115.029875 115.029875 0 0 0-81.078326-32.93807 110.975959 110.975959 0 0 0-81.078326 32.93807 115.283245 115.283245 0 0 0-17.735884 141.88707l38.005466 58.275047L261.417299 886.926955l55.741349 111.482698a45.099819 45.099819 0 0 0 40.539163 25.336977h397.790536a46.113298 46.113298 0 0 0 45.606559-38.005465l76.01093-385.122048a47.126777 47.126777 0 0 0-32.93807-53.207651l-238.167582-70.943536v-217.898a114.776505 114.776505 0 0 0-114.016396-119.083792m0 70.943536a45.353189 45.353189 0 0 1 45.606559 45.606558v268.571954l50.673953 15.202187 217.898001 65.876139-68.409837 347.116583H373.913476l-50.673953-98.81421-68.409838-126.684884a399.564125 399.564125 0 0 1-35.471768-73.477233 46.366668 46.366668 0 0 1 15.202187-38.005465 46.873407 46.873407 0 0 1 30.404372-12.668488 48.140256 48.140256 0 0 1 32.93807 12.668488l32.93807 32.93807 40.539163 40.539163a45.859928 45.859928 0 0 0 78.544628-32.93807V256.289602a41.806012 41.806012 0 0 1 43.07286-45.606559m-184.959931 167.224047a202.695815 202.695815 0 0 1-22.803279-124.151186A209.790168 209.790168 0 0 1 703.294175 278.839511a219.418219 219.418219 0 0 1-15.202186 81.078326 25.336977 25.336977 0 0 0 7.601093 27.870674l17.735884 15.202187a22.803279 22.803279 0 0 0 35.471767-7.601093 290.868494 290.868494 0 0 0 25.336977-116.550094A286.814578 286.814578 0 0 0 502.118579 0.132766a280.226964 280.226964 0 0 0-288.841536 278.706745 274.906199 274.906199 0 0 0 35.471768 136.819675 23.056649 23.056649 0 0 0 35.471767 5.067395l17.735884-15.202186a23.056649 23.056649 0 0 0 5.067395-27.870674" p-id="6089" fill="#000000"></path></svg>
+            </p>
+             <div class="overlay" id="overlay1">
+                <p class="card-title">上色</p>
+                <p class="intro">图像上色是指向一张黑白或灰度图像添加颜色信息，使其呈现出彩色效果。</p>
+                <div class="card-button-container">
+                    <a href="./coloring.html" class="card-button" >详情</a>
+                    <a href="http://10.10.109.212:7863/" class="card-button" target="_blank">演示</a> <!--需要算法启动地址-->
+                </div>
+            </div>
+        </div>
+
+        <div class="card"  style="background: url('images/indexSuperResolution.jpg');background-size: cover;">
+            <p class="card-outtitle"> 超分
+                <svg t="1709915225968" class="icon" style="position: absolute;left:75%;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6088" width="48" height="48"><path d="M491.983788 139.739508a117.816942 117.816942 0 0 0-116.550093 116.550094v347.116582l-32.93807-32.938069a115.029875 115.029875 0 0 0-81.078326-32.93807 110.975959 110.975959 0 0 0-81.078326 32.93807 115.283245 115.283245 0 0 0-17.735884 141.88707l38.005466 58.275047L261.417299 886.926955l55.741349 111.482698a45.099819 45.099819 0 0 0 40.539163 25.336977h397.790536a46.113298 46.113298 0 0 0 45.606559-38.005465l76.01093-385.122048a47.126777 47.126777 0 0 0-32.93807-53.207651l-238.167582-70.943536v-217.898a114.776505 114.776505 0 0 0-114.016396-119.083792m0 70.943536a45.353189 45.353189 0 0 1 45.606559 45.606558v268.571954l50.673953 15.202187 217.898001 65.876139-68.409837 347.116583H373.913476l-50.673953-98.81421-68.409838-126.684884a399.564125 399.564125 0 0 1-35.471768-73.477233 46.366668 46.366668 0 0 1 15.202187-38.005465 46.873407 46.873407 0 0 1 30.404372-12.668488 48.140256 48.140256 0 0 1 32.93807 12.668488l32.93807 32.93807 40.539163 40.539163a45.859928 45.859928 0 0 0 78.544628-32.93807V256.289602a41.806012 41.806012 0 0 1 43.07286-45.606559m-184.959931 167.224047a202.695815 202.695815 0 0 1-22.803279-124.151186A209.790168 209.790168 0 0 1 703.294175 278.839511a219.418219 219.418219 0 0 1-15.202186 81.078326 25.336977 25.336977 0 0 0 7.601093 27.870674l17.735884 15.202187a22.803279 22.803279 0 0 0 35.471767-7.601093 290.868494 290.868494 0 0 0 25.336977-116.550094A286.814578 286.814578 0 0 0 502.118579 0.132766a280.226964 280.226964 0 0 0-288.841536 278.706745 274.906199 274.906199 0 0 0 35.471768 136.819675 23.056649 23.056649 0 0 0 35.471767 5.067395l17.735884-15.202186a23.056649 23.056649 0 0 0 5.067395-27.870674" p-id="6089" fill="#000000"></path></svg>
+            </p>
+            <div class="overlay" id="overlay2">
+                <p class="card-title">超分</p>
+                <p class="intro">从给定的低分辨率图像/视频中恢复出清晰的高分辨率图像/视频。</p>
+                <div class="card-button-container">
+                    <a href="./superResolution.html" class="card-button">详情</a>
+                    <a href="http://10.10.109.212:7860/" class="card-button" target="_blank">演示</a> <!--需要算法启动地址-->
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background: url('images/indexRestoration.jpg');background-size: cover;">
+            <p class="card-outtitle"> 复原
+                <svg t="1709915225968" class="icon" style="position: absolute;left:75%;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6088" width="48" height="48"><path d="M491.983788 139.739508a117.816942 117.816942 0 0 0-116.550093 116.550094v347.116582l-32.93807-32.938069a115.029875 115.029875 0 0 0-81.078326-32.93807 110.975959 110.975959 0 0 0-81.078326 32.93807 115.283245 115.283245 0 0 0-17.735884 141.88707l38.005466 58.275047L261.417299 886.926955l55.741349 111.482698a45.099819 45.099819 0 0 0 40.539163 25.336977h397.790536a46.113298 46.113298 0 0 0 45.606559-38.005465l76.01093-385.122048a47.126777 47.126777 0 0 0-32.93807-53.207651l-238.167582-70.943536v-217.898a114.776505 114.776505 0 0 0-114.016396-119.083792m0 70.943536a45.353189 45.353189 0 0 1 45.606559 45.606558v268.571954l50.673953 15.202187 217.898001 65.876139-68.409837 347.116583H373.913476l-50.673953-98.81421-68.409838-126.684884a399.564125 399.564125 0 0 1-35.471768-73.477233 46.366668 46.366668 0 0 1 15.202187-38.005465 46.873407 46.873407 0 0 1 30.404372-12.668488 48.140256 48.140256 0 0 1 32.93807 12.668488l32.93807 32.93807 40.539163 40.539163a45.859928 45.859928 0 0 0 78.544628-32.93807V256.289602a41.806012 41.806012 0 0 1 43.07286-45.606559m-184.959931 167.224047a202.695815 202.695815 0 0 1-22.803279-124.151186A209.790168 209.790168 0 0 1 703.294175 278.839511a219.418219 219.418219 0 0 1-15.202186 81.078326 25.336977 25.336977 0 0 0 7.601093 27.870674l17.735884 15.202187a22.803279 22.803279 0 0 0 35.471767-7.601093 290.868494 290.868494 0 0 0 25.336977-116.550094A286.814578 286.814578 0 0 0 502.118579 0.132766a280.226964 280.226964 0 0 0-288.841536 278.706745 274.906199 274.906199 0 0 0 35.471768 136.819675 23.056649 23.056649 0 0 0 35.471767 5.067395l17.735884-15.202186a23.056649 23.056649 0 0 0 5.067395-27.870674" p-id="6089" fill="#000000"></path></svg>
+            </p>
+            <div class="overlay" id="overlay3">
+                <p class="card-title">复原</p>
+                <p class="intro">利用退化过程的先验知识，去恢复已被退化图像的本来面目。</p>
+                <div class="card-button-container">
+                    <a href="./restoration.html" class="card-button" style="width: 3.5vw;height: 1.8vw;font-size: 1vw;">详情</a>
+                    <a href="http://10.10.109.212:7861/" class="card-button" style="width: 3.5vw;height: 1.8vw;font-size: 1vw;" target="_blank">演示1</a>
+                    <a href="http://10.10.110.21:7862/" class="card-button" style="width: 3.5vw;height: 1.8vw;font-size: 1vw;" target="_blank">演示2</a> <!--需要算法启动地址-->
+                </div>
+            </div>
+        </div>
+
+        <div class="card" style="background: url('images/image3.gif');background-size: cover;">
+            <p class="card-outtitle"> 去模糊
+                <svg t="1709915225968" class="icon" style="position: absolute;left:75%;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6088" width="48" height="48"><path d="M491.983788 139.739508a117.816942 117.816942 0 0 0-116.550093 116.550094v347.116582l-32.93807-32.938069a115.029875 115.029875 0 0 0-81.078326-32.93807 110.975959 110.975959 0 0 0-81.078326 32.93807 115.283245 115.283245 0 0 0-17.735884 141.88707l38.005466 58.275047L261.417299 886.926955l55.741349 111.482698a45.099819 45.099819 0 0 0 40.539163 25.336977h397.790536a46.113298 46.113298 0 0 0 45.606559-38.005465l76.01093-385.122048a47.126777 47.126777 0 0 0-32.93807-53.207651l-238.167582-70.943536v-217.898a114.776505 114.776505 0 0 0-114.016396-119.083792m0 70.943536a45.353189 45.353189 0 0 1 45.606559 45.606558v268.571954l50.673953 15.202187 217.898001 65.876139-68.409837 347.116583H373.913476l-50.673953-98.81421-68.409838-126.684884a399.564125 399.564125 0 0 1-35.471768-73.477233 46.366668 46.366668 0 0 1 15.202187-38.005465 46.873407 46.873407 0 0 1 30.404372-12.668488 48.140256 48.140256 0 0 1 32.93807 12.668488l32.93807 32.93807 40.539163 40.539163a45.859928 45.859928 0 0 0 78.544628-32.93807V256.289602a41.806012 41.806012 0 0 1 43.07286-45.606559m-184.959931 167.224047a202.695815 202.695815 0 0 1-22.803279-124.151186A209.790168 209.790168 0 0 1 703.294175 278.839511a219.418219 219.418219 0 0 1-15.202186 81.078326 25.336977 25.336977 0 0 0 7.601093 27.870674l17.735884 15.202187a22.803279 22.803279 0 0 0 35.471767-7.601093 290.868494 290.868494 0 0 0 25.336977-116.550094A286.814578 286.814578 0 0 0 502.118579 0.132766a280.226964 280.226964 0 0 0-288.841536 278.706745 274.906199 274.906199 0 0 0 35.471768 136.819675 23.056649 23.056649 0 0 0 35.471767 5.067395l17.735884-15.202186a23.056649 23.056649 0 0 0 5.067395-27.870674" p-id="6089" fill="#000000"></path></svg>
+            </p>
+            <div class="overlay" id="overlay4">
+                <p class="card-title">去模糊</p>
+                <p class="intro">去模糊指使原本模糊的图像变得更加清晰和锐利。</p>
+                <div class="card-button-container">
+                    <a href="./deblurring.html" class="card-button">详情</a>
+                    <a href="http://10.10.109.212:7861/" class="card-button" target="_blank">演示</a> <!--需要算法启动地址-->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 用于显示/隐藏蒙版
+        document.querySelectorAll('.card').forEach((box, index) => {
+          const overlay = document.getElementById(`overlay${index + 1}`);
+          box.addEventListener('mouseenter', () => {
+            overlay.style.display = 'flex';
+          });
+          box.addEventListener('mouseleave', () => {
+            overlay.style.display = 'none';
+          });
+        });
+      </script>
+
+    
+</body>
+</html> 

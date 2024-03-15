@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: url('images/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    flex-direction: column;
+  }
+  .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 3vw 0;
+      width: 100%;
+  }
+
+  .logo {
+      font-size:2.5vw;
+      font-weight: bold;
+      margin: 0;
+      padding-left: 4.5vw;
+  }
+
+  .navigation {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      padding-right: 2.5vw;
+  }
+
+  .navigation li {
+      margin-left: 2vw;
+  }
+
+  .navigation a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2vw;
+    padding: 1vw 1vw;
+    border-radius: 1.5vw
+  }
+  .navigation a.active {
+      color: rgb(0, 0, 0);
+      background-color: rgba(255,255,255); 
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+      
+  }
+  .navigation a:hover{
+      color: rgb(0, 0, 0);
+      background-color: rgba(255,255,255); 
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  }
+
+  .page{
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: center;
+      margin-top: 6vh;
+   
+  }
+  .img-container{
+      width: 40%;
+      height: 60vh;
+      background-size: cover;
+      border: #fff 0.5vw solid;
+      border-radius: 2vw;
+      box-shadow: rgba(255, 255, 255, 0.25) 0px 14px 28px, rgba(255, 255, 255, 0.22) 0px 10px 10px;
+      /* margin-top: 1vh */
+
+
+  }
+  .text-container{
+      width: 40%;
+      /* height: 75vh; */
+  }
+  .title{
+      font-size: 3vw;
+      color: #fff;
+      font-weight: 600;
+      margin-left: 20%;
+      margin-top: 10%;
+  }
+  .line{
+      background-color: #fff;
+      height: 0.1vw;
+      width: 80%;
+      margin-left: 20%;
+      margin-top: 5%;
+  }
+  .content{
+      font-size: 1.5vw;
+      color: #fff;
+      margin-left: 20%;
+      margin-top: 5%;
+  }
+  .button{
+      width:12vw ;
+      height:4vw ;
+      margin-left:70%;
+      margin-top: 5%;
+      border-radius: 5vw ;
+      background: linear-gradient(to bottom right, rgb(113, 154, 220), rgb(178, 123, 210));
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      color: #fff;
+      font-size: 2vw;
+      font-weight: 600;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      text-decoration: none;
+  }
+  .button:hover{
+      transform: scale(1.1);
+  }
+  
+  .button:visited{
+      text-decoration: none;
+      color: #fff;
+  }
